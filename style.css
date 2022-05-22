@@ -1,0 +1,76 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    background-color: lightcoral;
+}  
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    background-color: darkgray;
+    padding: 20px;
+    border: 10px solid black;
+    border-radius: 20px;
+}
+
+
+.calculator{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+}
+
+.display{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    height: 50px;
+    width: 320px;
+    border: 5px solid black;
+    font-weight: 900;
+    background-color: rgb(80, 102, 47);
+    color: white;
+    font-size: 40px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.number,
+.operator,
+.equals{
+    width: 90px;
+    height: 90px;
+    font-weight: 900;
+    font-size: 25px;
+    color: white;
+}
+
+
+.number{
+    background-color: gray;
+}
+
+.operator{
+    background-color: rgb(53, 53, 153);
+}
+
+.equals{
+    background-color: rgba(255, 0, 0, 0.637);
+}
