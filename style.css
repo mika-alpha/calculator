@@ -5,7 +5,7 @@ body{
     align-items: center;
     min-height: 100vh;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    background-color: lightcoral;
+    background-color: rgba(240, 128, 128, 0.288);
 }  
 
 .main{

@@ -1,4 +1,22 @@
 
+let displayText = document.getElementById('displaytext');
+let numberButtons = Array.from(document.getElementsByClassName('number'));
+let display = "";
+let displayContainer = document.querySelector('.display');
+let currentValue = 0;
+
+numberButtons.forEach(button => button.addEventListener('click', populateDisplay));
+
+function populateDisplay(e){
+    if (display.length == 12){
+        return;
+    }
+    display += e.target.textContent;
+    displayText.textContent = display;
+}
+
+
+
 function add(a,b){
     return a+b;
 }
