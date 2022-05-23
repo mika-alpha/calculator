@@ -62,7 +62,7 @@ body{
 
 .number,
 .operator,
-.equals{
+#equals{
     width: 90px;
     height: 90px;
     font-weight: 900;
@@ -79,6 +79,6 @@ body{
     background-color: rgb(53, 53, 153);
 }
 
-.equals{
+#equals{
     background-color: rgba(255, 0, 0, 0.637);
 }

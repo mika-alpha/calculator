@@ -1,13 +1,37 @@
 
 let displayText = document.getElementById('displaytext');
 let numberButtons = Array.from(document.getElementsByClassName('number'));
-let display = "";
 let displayContainer = document.querySelector('.display');
-let currentValue = 0;
+let operatorButtons = Array.from(document.getElementsByClassName('operator'));
+let equalsButton = document.getElementById('equals');
+let clearButton = document.getElementById('clear');
+
+let display = "";
+let operator = "";
+
+let inputValue = 0;
 
 numberButtons.forEach(button => button.addEventListener('click', populateDisplay));
+operatorButtons.forEach(button => button.addEventListener('click', (e) => {
+    checkForErrors();
+    if (operator != ""){
+        operate();
+    }
+    operator = e.target.textContent;
+    inputValue = Number(displayText.textContent);
+    display = "";
+}));
+equalsButton.addEventListener('click', operate);
+clearButton.addEventListener('click', () =>{
+    operator = "";
+    inputValue = 0;
+    display = "";
+    displayText.textContent = "";
+});
+
 
 function populateDisplay(e){
+    checkForErrors();
     if (display.length == 12){
         return;
     }
@@ -16,35 +40,50 @@ function populateDisplay(e){
 }
 
 
-
-function add(a,b){
-    return a+b;
+function add(secondValue){
+    return inputValue+secondValue;
 }
 
-function subtract(a,b){
-    return a-b;
+function subtract(secondValue){
+    return inputValue-secondValue;
 }
 
-function multiply(a,b){
-    return a*b;
+function multiply(secondValue){
+    return inputValue*secondValue;
 }
 
-function divide (a,b){
-    if (b === 0){
-        return "ERROR";
-    }
-    return a/b;
+function divide(secondValue){
+    return inputValue/secondValue;
 }
 
-function operate(a,b,operator){
+
+function operate(){
     switch(operator){
         case "+":
-            return add(a,b);
+            inputValue = add(Number(display));
+            displayText.textContent = inputValue;
+            display = inputValue;
+            break;
         case "-":
-            return subtract(a,b);
+            inputValue = subtract(Number(display));
+            displayText.textContent = inputValue;
+            display = inputValue;
+            break;
         case "x":
-            return multiply(a,b);
+            inputValue = multiply(Number(display));
+            displayText.textContent = inputValue;
+            display = inputValue;
+            break;
         case "/":
-            return divide(a,b);
+            inputValue = divide(Number(display));
+            displayText.textContent = inputValue;
+            display = inputValue;
+            break;
+    }
+}
+
+function checkForErrors(){
+    if (inputValue == "Infinity" || inputValue == NaN){
+        clearButton.click();
     }
 }
